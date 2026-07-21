@@ -1,0 +1,28 @@
+name: React Demo Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install all the dependencies
+        run: npm ci
+
+      - name: Run linting on the code
+        run: npm run lint
+
+      - name: Build the React application
+        run: npm run build
