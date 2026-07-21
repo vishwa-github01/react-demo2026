@@ -26,4 +26,7 @@ jobs:
         run: npm ci
 
       - name: Build the Angular Application
+        run: npm run lint
+
+      - name: Build the Angular Application
         run: npm run build
